@@ -8,13 +8,16 @@ defmodule Counter.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      # Start the App State
+     Counter.Count,
+      # Start the Telemetry supervisor
       CounterWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:counter, :dns_cluster_query) || :ignore},
+      # Start the PubSub system
       {Phoenix.PubSub, name: Counter.PubSub},
-      # Start a worker by calling: Counter.Worker.start_link(arg)
-      # {Counter.Worker, arg},
-      # Start to serve requests, typically the last entry
+      # Start the Endpoint (http/https)
       CounterWeb.Endpoint
+      # Start a worker by calling: Counter.Worker.start_link(arg)
+      # {Counter.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -22,6 +25,7 @@ defmodule Counter.Application do
     opts = [strategy: :one_for_one, name: Counter.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.

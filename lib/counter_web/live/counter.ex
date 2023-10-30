@@ -1,28 +1,35 @@
 defmodule CounterWeb.Counter do
   use CounterWeb, :live_view
+  alias Counter.Count
+  alias Phoenix.PubSub
+
+  @topic Count.topic
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :val, 0)}
+    PubSub.subscribe(Counter.PubSub, @topic)
+
+    {:ok, assign(socket, val: Count.current()) }
   end
 
   def handle_event("inc", _, socket) do
-    {:noreply, update(socket, :val, &(&1 + 1))}
+    {:noreply, assign(socket, :val, Count.incr())}
   end
 
   def handle_event("dec", _, socket) do
-    {:noreply, update(socket, :val, &(&1 - 1))}
+    {:noreply, assign(socket, :val, Count.decr())}
+  end
+
+  def handle_info({:count, count}, socket) do
+    {:noreply, assign(socket, val: count)}
   end
 
   def render(assigns) do
     ~H"""
     <div>
-    <h1 class="text-4xl font-bold text-center"> The count is: <%= @val %> </h1>
-
-    <p class="text-center">
-     <.button phx-click="dec">-</.button>
-     <.button phx-click="inc">+</.button>
-     </p>
-     </div>
+      <h1>The count is: <%= @val %></h1>
+      <.button phx-click="dec">-</.button>
+      <.button phx-click="inc">+</.button>
+    </div>
     """
   end
 end
