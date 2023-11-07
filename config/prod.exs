@@ -7,6 +7,11 @@ import Config
 # before starting your production server.
 config :counter, CounterWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :counter, CounterWeb.Endpoint,
+  http: [port: {:system, "PORT"}],
+  url: [host: "sharded-counter" <> ".gigalixirapp.com", port: 443],
+  # secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  server: true
 # Do not print debug messages in production
 config :logger, level: :info
 
