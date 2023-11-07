@@ -35,3 +35,6 @@ counter-*.tar
 npm-debug.log
 /assets/node_modules/
 
+*.xml
+.idea/
+counter.iml
