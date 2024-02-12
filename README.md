@@ -1,23 +1,17 @@
-# Sharded-Counter: Concurrency Unleashed 🚀
-
-Welcome to Sharded-Counter, the Elixir project that's all about taking concurrency to the next level! We're not just counting numbers; we're counting them in style with a touch of humor.
+# Sharded-Counter: Simplifying Concurrency
 
 ## Project Overview
 
-In this project, we've mimicked the concept of sharding using the extraordinary powers of Elixir and OTP (Open Telecom Platform) to create a counter that can handle a million "are we there yets?" at the same time. How? Well, by spreading the counting workload across multiple processes, each taking care of its own share of the counting business.
+This project utilizes Elixir and OTP to create a counter capable of handling numerous counting tasks simultaneously by distributing the workload across multiple processes.
 
 ## Features
 
-- 🚀 **Concurrent Counting at Its Best**: Count numbers simultaneously from different process with Elixir's OTP wizardry.
-- 🧙 **OTP: It's Like a Superhero Group for Counter**: OTP keeps everything in checks, making sure no count is left behind.
-- 💥 **Distributed Counting with a Dash of Parallel Spice**: Spices up your counting game with parallel processing. No number will be left uncounted!
+- **Concurrent Counting**: Numbers are counted concurrently from different processes.
+- **OTP Integration**: OTP ensures efficient organization and management of counts.
+- **Distributed Counting with Parallel Processing**: Utilizes parallel processing to expedite counting tasks.
 
 ## Why Pursue this Idea?
 
-**Unlocking the Full Potential of OTP with Elixir**: Our project is a roller-coaster journey into the world of OTP using Elixir. Think of it as an amusement park for tech enthusiasts, with OTP as the ultimate ride.
-
-**Complexity Made Manageable**: Counting can be a daunting task, especially when there's concurrency involved. But with Elixir, we turns complexity into a thrilling adventure.
-
-**The Art of Concurrency**: Elixir makes mastering concurrency an art, and this project is your canvases. It's like a painting class but with more processes and fewer brush.
-
-This project isn't just about counting; it's about embracing Elixir's elegance, unleashing OTP's power, and mastering the art of concurrent system. So hop on board, because the journey is about to get serious fun and educational!
+- **Optimal Use of OTP with Elixir**: Explore the practical application of OTP in Elixir.
+- **Simplified Complexity**: Concurrency management made straightforward.
+- **Efficient Concurrency**: Learn concurrency without unnecessary complications.
